@@ -14,7 +14,6 @@ app.use(cors())
 // Create the scrap function
 const scrapData = async () => {
     try {
-        // Get the URL that I want to scrap
         const url = 'https://coinmarketcap.com/'
         const { data } = await axios.get(url)
         const $ = cheerio.load(data)
@@ -38,9 +37,6 @@ const scrapData = async () => {
             let keyIdx = 0
             const coinObj = {}
 
-            // if (pI <= 9) {
-
-            // }
             $(pE).children().each((cI, cE) => {
                 let tdValue = $(cE).text()
 
@@ -62,6 +58,7 @@ const scrapData = async () => {
         console.log(error)
     }
 }
+
 
 // Invoke the function
 // scrapData()
